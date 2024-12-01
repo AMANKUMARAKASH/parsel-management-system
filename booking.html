@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Service</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <h1 id="roleSpecificTitle">Enter Booking Details</h1>
+    <form id="bookingForm">
+        <fieldset>
+            <legend>Sender Information</legend>
+            <label for="senderName">Sender Name:</label>
+            <input type="text" id="senderName" name="senderName">
+            <span id="senderNameError" class="error"></span>
+            <br>
+            <label for="senderAddress">Sender Address:</label>
+            <input type="text" id="senderAddress" name="senderAddress">
+            <span id="senderAddressError" class="error"></span>
+            <br>
+            <label for="senderMobile">Sender Mobile:</label>
+            <input type="text" id="senderMobile" name="senderMobile">
+            <span id="senderMobileError" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Receiver Information</legend>
+            <label for="receiverName">Receiver Name:</label>
+            <input type="text" id="receiverName" name="receiverName">
+            <span id="receiverNameError" class="error"></span>
+            <br>
+            <label for="receiverAddress">Receiver Address:</label>
+            <input type="text" id="receiverAddress" name="receiverAddress">
+            <span id="receiverAddressError" class="error"></span>
+            <br>
+            <label for="receiverMobile">Receiver Mobile:</label>
+            <input type="text" id="receiverMobile" name="receiverMobile">
+            <span id="receiverMobileError" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Parcel Details</legend>
+            <label for="weight">Parcel Weight (kg):</label>
+            <input type="number" id="weight" name="weight">
+            <span id="weightError" class="error"></span>
+            <br>
+            <label for="parcelDescription">Parcel Description:</label>
+            <textarea id="parcelDescription" name="parcelDescription"></textarea>
+            <span id="parcelDescriptionError" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Shipping Options</legend>
+            <label for="deliveryOption">Delivery Option:</label>
+            <select id="deliveryOption" name="deliveryOption">
+                <option value="">--Select--</option>
+                <option value="standard">Standard</option>
+                <option value="express">Express</option>
+            </select>
+            <span id="deliveryOptionError" class="error"></span>
+            <br>
+            <label for="packingOption">Packing Option:</label>
+            <select id="packingOption" name="packingOption">
+                <option value="">--Select--</option>
+                <option value="eco">Eco-Friendly</option>
+                <option value="standard">Standard</option>
+            </select>
+            <span id="packingOptionError" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date and Time</legend>
+            <label for="pickupDate">Pickup Date:</label>
+            <input type="date" id="pickupDate" name="pickupDate">
+            <span id="pickupDateError" class="error"></span>
+            <br>
+            <label for="pickupTime">Pickup Time:</label>
+            <input type="time" id="pickupTime" name="pickupTime">
+            <span id="pickupTimeError" class="error"></span>
+            <br>
+            <label for="deliveryDate">Delivery Date:</label>
+            <input type="date" id="deliveryDate" name="deliveryDate">
+            <span id="deliveryDateError" class="error"></span>
+            <br>
+            <label for="deliveryTime">Delivery Time:</label>
+            <input type="time" id="deliveryTime" name="deliveryTime">
+            <span id="deliveryTimeError" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Options</legend>
+            <label for="insurance">
+                <input type="checkbox" id="insurance" name="insurance"> Add Insurance
+            </label>
+            <br>
+            <label for="tracking">
+                <input type="checkbox" id="tracking" name="tracking"> Add Tracking
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Cost Summary</legend>
+            <p id="costSummary"></p>
+            <button type="button" id="calculateCost">Calculate Cost</button>
+        </fieldset>
+
+        <button type="button" id="submitBooking">Submit Booking</button>
+    </form>
+    <script src="booking.js"></script>
+</body>
+</html>

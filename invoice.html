@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="invoice.css">
+</head>
+<body>
+    <div class="invoice-container">
+        <h1>Invoice</h1>
+        
+        <!-- Customer and Booking Details -->
+        <div id="customerDetails">
+            <h3>Customer Details</h3>
+            <p><strong>Name:</strong> <span id="customerName"></span></p>
+            <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+            <p><strong>Mobile:</strong> <span id="customerMobile"></span></p>
+        </div>
+        
+        <div id="bookingDetails">
+            <h3>Booking Details</h3>
+            <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+            <p><strong>Weight:</strong> <span id="bookingWeight"></span> kg</p>
+            <p><strong>Packing Option:</strong> <span id="packingOption"></span></p>
+            <p><strong>Delivery Option:</strong> <span id="deliveryOption"></span></p>
+            <p><strong>Pickup Date:</strong> <span id="pickupDate"></span></p>
+            <p><strong>Delivery Date:</strong> <span id="deliveryDate"></span></p>
+        </div>
+        
+        <!-- Cost Summary -->
+        <div id="costSummary">
+            <h3>Cost Summary</h3>
+            <p><strong>Base Cost:</strong> ₹<span id="baseCost"></span></p>
+            <p><strong>Insurance (if applicable):</strong> ₹<span id="insuranceCost"></span></p>
+            <p><strong>Total Cost:</strong> ₹<span id="totalCost"></span></p>
+        </div>
+        
+        
+        
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="invoice.js"></script>
+</body>
+</html>
+

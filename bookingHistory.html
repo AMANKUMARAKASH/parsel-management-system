@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+    <link rel="stylesheet" href="bookingHistory.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="welcome">
+                <h2 id="welcomeMessage">Welcome, User</h2>
+            </div>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+
+        <!-- Booking History Section -->
+        <div class="history-section">
+            <h3>Booking History</h3>
+            <div id="bookingDetails" class="booking-details">
+                <p id="customerId">Customer ID: -</p>
+                <p id="bookingId">Booking ID: -</p>
+                <p id="bookingDate">Booking Date: -</p>
+                <p id="deliveryAddress">Delivery Address: -</p>
+                <p id="receiverAddress">Receiver Address: -</p>
+                <p id="amount">Amount: -</p>
+                <p id="status">Status: -</p>
+            </div>
+            <div class="navigation">
+                <button id="prevBtn" disabled>Previous</button>
+                <button id="nextBtn" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bookingHistory.js"></script>
+</body>
+</html>

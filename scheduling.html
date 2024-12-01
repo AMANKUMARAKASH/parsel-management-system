@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup Scheduling</title>
+    <link rel="stylesheet" href="scheduling.css">
+</head>
+<body>
+    <header>
+        <h1>Pickup Scheduling</h1>
+    </header>
+
+    <main>
+        <div id="searchSection">
+            <h2>Search Booking</h2>
+            <label for="searchBookingId">Enter Booking ID:</label>
+            <input type="text" id="searchBookingId" placeholder="Enter Booking ID">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div id="errorMessage" style="color: red; display: none;">
+            <p>Booking ID not found. Please try again.</p>
+        </div>
+
+        <div id="schedulingForm" style="display: none;">
+            <h2>Finalize Pickup Schedule</h2>
+            <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+
+            <label for="pickupDate">Pickup Date:</label>
+            <input type="date" id="pickupDate">
+
+            <label for="pickupTime">Pickup Time:</label>
+            <input type="time" id="pickupTime">
+
+            <button id="saveSchedule">Save</button>
+            <div id="confirmationMessage" style="color: green; display: none;">
+                <p>Scheduling finalized!</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="scheduling.js"></script>
+</body>
+</html>

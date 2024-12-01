@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Update</title>
+    <link rel="stylesheet" href="delivery.css">
+</head>
+<body>
+    <header>
+        <h1>Delivery Update</h1>
+    </header>
+
+    <main>
+        <div id="searchSection">
+            <h2>Search Booking</h2>
+            <label for="searchBookingId">Enter Booking ID:</label>
+            <input type="text" id="searchBookingId" placeholder="Enter Booking ID">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div id="errorMessage" style="color: red; display: none;">
+            <p>Booking ID not found. Please try again.</p>
+        </div>
+
+        <div id="deliveryForm" style="display: none;">
+            <h2>Update Delivery Status</h2>
+            <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+            <p><strong>Current Status:</strong> <span id="currentStatus"></span></p>
+
+            <label for="deliveryStatus">Update Status:</label>
+            <select id="deliveryStatus">
+                <option value="In Transit">In Transit</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+
+            <button id="updateButton">Update Status</button>
+            <div id="confirmationMessage" style="color: green; display: none;">
+                <p>Delivery status updated successfully!</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="delivery.js"></script>
+</body>
+</html>

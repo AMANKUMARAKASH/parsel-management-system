@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <header class="top-bar">
+        <h1>Payment Page</h1>
+        <button id="logout" class="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <h2 id="welcomeMessage"></h2>
+        <div class="payment-container">
+            <h3>Payment Details</h3>
+            <p><strong>Bill Amount:</strong> ₹<span id="billAmount">0</span></p>
+            
+            <form id="paymentForm">
+                <label for="paymentMode">Mode of Payment:</label>
+                <select id="paymentMode">
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                </select>
+
+                <div id="cardDetails" class="card-details hidden">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" maxlength="16" placeholder="Enter card number">
+                    <span class="error" id="cardNumberError"></span>
+
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="month" id="expiryDate">
+                    <span class="error" id="expiryDateError"></span>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="password" id="cvv" maxlength="3" placeholder="Enter CVV">
+                    <span class="error" id="cvvError"></span>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" id="payNow" class="button">Pay Now</button>
+                    <button type="button" id="backNow" class="button">Back to Booking</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="payment.js"></script>
+</body>
+</html>
