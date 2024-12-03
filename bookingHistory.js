@@ -15,11 +15,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const username = localStorage.getItem('username') || 'User';
     welcomeMessage.textContent = `Welcome, ${username}`;
 
-    const customerId = localStorage.getItem('customerId');
+    // Generate and display Customer ID if not already stored
+    let customerId = localStorage.getItem('customerId');
+    if (!customerId) {
+        customerId = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit numeric ID
+        localStorage.setItem('customerId', customerId);
+    }
     customerIdEl.textContent = `Customer ID: ${customerId}`;
 
-    // Booking history data (retrieved from localStorage as an example)
-    const bookings = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+    // Fetch booking history from localStorage
+    let bookings = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+
+    // If no booking history, create a placeholder booking and save it
+    if (bookings.length === 0) {
+        const initialBooking = {
+            bookingId: Math.floor(100000 + Math.random() * 900000), // Random 6-digit Booking ID
+            bookingDate: new Date().toLocaleDateString(),
+            deliveryAddress: '123 Delivery Lane, City, State, ZIP',
+            receiverAddress: '789 Receiver Road, City, State, ZIP',
+            amount: 500.00,
+            status: 'In Transit'
+        };
+        bookings.push(initialBooking);
+        localStorage.setItem('bookingHistory', JSON.stringify(bookings));
+    }
 
     let currentIndex = 0;
 
@@ -64,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html';
     });
 
-    // Display first booking if available
+    // Display the first booking if available
     if (bookings.length > 0) {
         displayBooking(currentIndex);
     } else {
