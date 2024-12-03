@@ -15,78 +15,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const username = localStorage.getItem('username') || 'User';
     welcomeMessage.textContent = `Welcome, ${username}`;
 
-    // Generate and display Customer ID if not already stored
-    let customerId = localStorage.getItem('customerId');
-    if (!customerId) {
-        customerId = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit numeric ID
-        localStorage.setItem('customerId', customerId);
-    }
+    const customerId = localStorage.getItem('customerId') || 'N/A';
     customerIdEl.textContent = `Customer ID: ${customerId}`;
 
-    // Fetch booking history from localStorage
-    let bookings = JSON.parse(localStorage.getItem('bookingHistory')) || [];
+    // Fetch individual booking details from localStorage
+    const bookingId = localStorage.getItem('bookingId') || 'N/A';
+    const bookingDate = localStorage.getItem('pickupDate') || 'N/A';
+    const deliveryAddress = localStorage.getItem('deliveryAddress') || 'N/A';
+    const receiverAddress = localStorage.getItem('receiverAddress') || 'N/A';
+    const amount = localStorage.getItem('calculatedCost') || 'N/A';
+    const status = localStorage.getItem('parcelStatus') || 'N/A';
 
-    // If no booking history, create a placeholder booking and save it
-    if (bookings.length === 0) {
-        const initialBooking = {
-            bookingId: Math.floor(100000 + Math.random() * 900000), // Random 6-digit Booking ID
-            bookingDate: new Date().toLocaleDateString(),
-            deliveryAddress: '123 Delivery Lane, City, State, ZIP',
-            receiverAddress: '789 Receiver Road, City, State, ZIP',
-            amount: 500.00,
-            status: 'In Transit'
-        };
-        bookings.push(initialBooking);
-        localStorage.setItem('bookingHistory', JSON.stringify(bookings));
-    }
+    // Display booking details
+    bookingIdEl.textContent = `Booking ID: ${bookingId}`;
+    bookingDateEl.textContent = `Booking Date: ${bookingDate}`;
+    deliveryAddressEl.textContent = `Delivery Address: ${deliveryAddress}`;
+    receiverAddressEl.textContent = `Receiver Address: ${receiverAddress}`;
+    amountEl.textContent = `Amount: ₹${amount}`;
+    statusEl.textContent = `Status: ${status}`;
 
-    let currentIndex = 0;
-
-    // Function to display a booking
-    function displayBooking(index) {
-        if (bookings.length > 0) {
-            const booking = bookings[index];
-            bookingIdEl.textContent = `Booking ID: ${booking.bookingId}`;
-            bookingDateEl.textContent = `Booking Date: ${booking.bookingDate}`;
-            deliveryAddressEl.textContent = `Delivery Address: ${booking.deliveryAddress}`;
-            receiverAddressEl.textContent = `Receiver Address: ${booking.receiverAddress}`;
-            amountEl.textContent = `Amount: ₹${booking.amount}`;
-            statusEl.textContent = `Status: ${booking.status}`;
-        }
-        updateNavigationButtons();
-    }
-
-    // Update navigation buttons
-    function updateNavigationButtons() {
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === bookings.length - 1;
-    }
-
-    // Add event listeners for navigation
-    prevBtn.addEventListener('click', function () {
-        if (currentIndex > 0) {
-            currentIndex--;
-            displayBooking(currentIndex);
-        }
-    });
-
-    nextBtn.addEventListener('click', function () {
-        if (currentIndex < bookings.length - 1) {
-            currentIndex++;
-            displayBooking(currentIndex);
-        }
-    });
+    // Navigation button logic (disabled for now as no array or multiple bookings are used)
+    prevBtn.disabled = true;
+    nextBtn.disabled = true;
 
     // Logout functionality
     logoutBtn.addEventListener('click', function () {
         localStorage.clear();
         window.location.href = 'login.html';
     });
-
-    // Display the first booking if available
-    if (bookings.length > 0) {
-        displayBooking(currentIndex);
-    } else {
-        alert('No booking history available.');
-    }
 });
+
